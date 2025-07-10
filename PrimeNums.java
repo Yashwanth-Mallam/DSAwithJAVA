@@ -10,11 +10,11 @@ public class PrimeNums {
         //  
         boolean isprime=true;
         if (num <= 1){
-            System.out.println("not zero AND one are prime nums!");
+            System.out.println("zero AND one are not prime nums!");
         }else if(num ==2){
             System.out.println("2 is a prime number");
         }else{
-            for (int i =3; i<num; i++){
+            for (int i =3; i<=num/2; i++){
                 if (num%i == 0){
                     isprime = false;
                     break;

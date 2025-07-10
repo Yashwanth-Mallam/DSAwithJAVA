@@ -9,9 +9,9 @@
 // Output: 4
 // Explanation: The longest consecutive subsequence is 5, 6, 7, and 8.
 
-public class FindLongestConsicutiveSquenceinArr {
-    // method
-    public static int findLongestConsecutive(int[] arr) {
+// public class FindLongestConsicutiveSquenceinArr {
+//     // method
+//     public static int findLongestConsecutive(int[] arr) {
         
-    }
-}
+//     }
+// }
