@@ -68,6 +68,32 @@ class operations {
         return count;
     }
 
+    // method to find the middle Node of the sLL.
+    public linkedListOperrations middleNodeofSLL(linkedListOperrations head){
+        linkedListOperrations slow = head;
+        linkedListOperrations fast = head;
+        // linkedListOperrations temp = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        // reminder this will always retruns 2nd middle.
+        return slow;
+    }
+
+    // method to find the 1st middle of the SLL.
+    public linkedListOperrations FindScondMiddle(linkedListOperrations head){
+        linkedListOperrations slow = head;
+        linkedListOperrations fast = head.next;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        // reminder: this method will always returns the 1st mid of SLL.
+        return slow;
+    }
+
     // search in LL
     // NOTE: TIME COMPLEXITY OF THE SEARCH MAY HIGH, (lenear Search)
     public boolean isPresent(linkedListOperrations head, int target){
@@ -138,6 +164,49 @@ class operations {
         delNode = null;
         return head;
     }
+    // merge method.
+    public linkedListOperrations merge( linkedListOperrations subSLL1, linkedListOperrations subSLL2){
+        linkedListOperrations dummyNode = new linkedListOperrations(-1);
+        linkedListOperrations temp = dummyNode;
+
+        while (subSLL1 != null && subSLL2 !=null) {
+            if (subSLL1.data <= subSLL2.data) {
+                temp.next = subSLL1;
+                subSLL1 = subSLL1.next;
+            }else{
+                temp.next = subSLL2;
+                subSLL2 = subSLL2.next;
+            }
+            temp = temp.next;
+        }
+
+        if(subSLL1 != null){
+            temp.next = subSLL1;
+        }else{
+            temp.next = subSLL2;
+        }
+
+        return dummyNode.next;
+    }
+
+    // lets sort the SLL using merge sort.
+    public linkedListOperrations MergeSort(linkedListOperrations head){
+
+        if (head == null || head.next == null) return head;
+
+        linkedListOperrations left = head;
+        linkedListOperrations middle = FindScondMiddle(head);
+        linkedListOperrations right = middle.next;
+        // setting the middle.next to null( to divide the SLL into 2 parts).
+        middle.next = null;
+        // left SLL
+        left = MergeSort(left);
+        // ?right SLL
+        right = MergeSort(right);
+
+        // now call the merge Fun.
+        return merge(left, right);
+    }
 
     public linkedListOperrations deleteMiddleNode(linkedListOperrations head) {
         if (head == null || head.next == null) return null; // if 0 or 1 node, return null
@@ -168,7 +237,7 @@ class operations {
 
     // finally lets use this operations and methods in the main method to understand its behaviour.
     public static void main(String[] args) {
-        int[] arr = {0,1,2,3,4};
+        int[] arr = {0,2,4,3,5,7,1};
         int value = 100; 
 
         // let take the head value from the above arr.
@@ -178,6 +247,11 @@ class operations {
         head.next = new linkedListOperrations(arr[1]);
         head.next.next = new linkedListOperrations(arr[2]);
         head.next.next.next = new linkedListOperrations(arr[3]);
+        head.next.next.next.next =  new linkedListOperrations(arr[4]);
+        head.next.next.next.next.next =  new linkedListOperrations(arr[5]);
+        head.next.next.next.next.next.next = new linkedListOperrations(arr[6]);
+
+
 
         // the below is to check the isCircular method working or not.
         // head.next.next.next.next = head.next.next;
@@ -204,6 +278,23 @@ class operations {
         // int result = obj.lengthLL(head);
         // System.out.println("length: "+ result);
 
+        // // find the middle Node of SLL
+        // System.out.println("Middle Node of linked list: ");
+        // linkedListOperrations result6 = obj.middleNodeofSLL(head);
+        // System.out.println("middle Node of SLL is: "+ result6.data);
+
+        
+        // find the 1st middle Node of SLL
+        // System.out.println("Middle Node of linked list: ");
+        // linkedListOperrations firstmiddle = obj.FindScondMiddle(head);
+        // System.out.println("middle Node of SLL is: "+ firstmiddle.data);
+
+        // sort the SLL.
+        
+        System.out.println("sorted linked list: ");
+        linkedListOperrations sorted = obj.MergeSort(head);
+        obj.PrintLinkedList(sorted);
+
         // // search in the LL
         // System.out.println("Search 2 in linked list: ");
         // int target = 2;
@@ -216,9 +307,9 @@ class operations {
         // System.out.println("is looped: "+ result3);
 
         // to delete the middle node.
-        System.out.println("After deleting the middle node: ");
-        linkedListOperrations result5 = obj.deleteMiddleNode(head);
-        obj.PrintLinkedList(result5);
+        // System.out.println("After deleting the middle node: ");
+        // linkedListOperrations result5 = obj.deleteMiddleNode(head);
+        // obj.PrintLinkedList(result5);
 
         // to remove nth node from SLL.
         // System.out.println("Nth node is removed from SLL: ");

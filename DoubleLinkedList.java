@@ -99,6 +99,37 @@ public class DoubleLinkedList {
 
         return temp;
     }
+    // method to delete the target values from the DLL
+    public Node deleteAllOccurrences(Node head, int target) {
+    Node current = head;
+
+    while (current != null) {
+        Node nextNode = current.next;  // Always save the next node
+
+        if (current.data == target) {
+            // Deleting the head node
+            if (current == head) {
+                head = current.next;
+                if (head != null) {
+                    head.back = null;
+                }
+            } else {
+                // Adjust the pointers of surrounding nodes
+                if (current.back != null) {
+                    current.back.next = current.next;
+                }
+                if (current.next != null) {
+                    current.next.back = current.back;
+                }
+            }
+        }
+
+        current = nextNode;  // Move to next regardless of deletion
+    }
+
+    return head;
+}
+
 
     // we can reverse the DLL.
     public Node ReverseDLL(Node head){
@@ -169,40 +200,46 @@ public class DoubleLinkedList {
         // to print the DLL
         DLL.PrintDLL(dll);
 
-        // to insert the ele to DLL.
-        Node res = DLL.insertAtEnd(dll, 6);
-        System.out.println("After the insertion of last node in DLL: ");
-        DLL.PrintDLL(res);
+        // // to insert the ele to DLL.
+        // Node res = DLL.insertAtEnd(dll, 6);
+        // System.out.println("After the insertion of last node in DLL: ");
+        // DLL.PrintDLL(res);
         
-        // search in DLL.
-        System.out.println("searching in DLL:");
-        int target = 3;
-        System.out.println("is ele present? 3: "+DLL.SearchinDLL(dll, target));
+        // // search in DLL.
+        // System.out.println("searching in DLL:");
+        // int target = 3;
+        // System.out.println("is ele present? 3: "+DLL.SearchinDLL(dll, target));
 
-        // to delete the tail.
-        Node ress = DLL.deleteTail(dll);
-        System.out.println("after deleting the tail node: ");
-        DLL.PrintDLL(ress);
+        // // to delete the tail.
+        // Node ress = DLL.deleteTail(dll);
+        // System.out.println("after deleting the tail node: ");
+        // DLL.PrintDLL(ress);
 
-        // to delete the head.
-        Node resss = DLL.deleteHead(ress);
-        System.out.println("After deleteing the head node: ");
-        DLL.PrintDLL(resss);
+        // to delete the target in the DLL
+        int targ = 2;
+        System.out.println("after deleting the target from the DLL: ");
+        Node deltar = DLL.deleteAllOccurrences(head, targ);
+        DLL.PrintDLL(deltar);
 
-        // to insert at the head.
-        Node ressss = DLL.insertAthead(resss, 9);
-        System.out.println("After inserting the ele at head: ");
-        DLL.PrintDLL(ressss);
+        // // to delete the head.
+        // Node resss = DLL.deleteHead(ress);
+        // System.out.println("After deleteing the head node: ");
+        // DLL.PrintDLL(resss);
 
-        // to reverse the DLL
-        Node resssss = DLL.ReverseDLL(ressss);
-        System.out.println("After reversing the DLL: ");
-        DLL.PrintDLL(resssss);
+        // // to insert at the head.
+        // Node ressss = DLL.insertAthead(resss, 9);
+        // System.out.println("After inserting the ele at head: ");
+        // DLL.PrintDLL(ressss);
 
-        // to find the middle of the DLL.
-        Node middle = DLL.FindMiddle(resssss);
-        System.out.println("the middle Node of the DLL: ");
-        System.out.println(middle.data);
+        // // to reverse the DLL
+        // Node resssss = DLL.ReverseDLL(ressss);
+        // System.out.println("After reversing the DLL: ");
+        // DLL.PrintDLL(resssss);
+
+        // // to find the middle of the DLL.
+        // Node middle = DLL.FindMiddle(resssss);
+        // System.out.println("the middle Node of the DLL: ");
+        // System.out.println(middle.data);
 
     }
 }
