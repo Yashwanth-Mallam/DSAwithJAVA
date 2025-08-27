@@ -140,18 +140,15 @@ public class trees {
         return false; // if the data is not found
     }
     
-    // 
+    // method to find the length (height) of the tree
     public int lenghtOftree(Nodee root){
 
-        if(root ==null) return 0;
+        if (root == null) return 0;
 
-        int count = 0;
-        while(root.left != null && root.right != null){
-            count++;
-            lenghtOftree(root.left);
-            lenghtOftree(root.right);
-        }
-        return count;
+        int leftHeight = lenghtOftree(root.left);
+        int rightHeight = lenghtOftree(root.right);
+
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 
 
