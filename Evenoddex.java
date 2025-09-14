@@ -1,7 +1,7 @@
 import java.util.Scanner;
 // to check the give number is even or odd.
 // the program is taking the input from the user and checkinng for condition
-// to avoid the unused proble we can use tryblock or "close.scanner()" 
+// to avoid the unused proble we can use tryblock or "close.scanner()" ..
 public class Evenoddex {
     public static void main(String[] args) {
         @SuppressWarnings("resource")

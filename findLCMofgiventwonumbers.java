@@ -1,4 +1,4 @@
-// find the Lmc of given 2 numbers.
+// find the Lmc of given 2 numbers...
 
 public class findLCMofgiventwonumbers {
      public static int findLCMofNums(int a, int b) {

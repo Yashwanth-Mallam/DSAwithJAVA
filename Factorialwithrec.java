@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class Factorialwithrec {
-    // Recursive method to calculate the factorial of a number
+    // Recursive method to calculate the factorial of a number...
     public int factorial(int num) {
         if (num == 1 || num == 0) {
             return 1;  // Base case: 1! = 1 and 0! = 1

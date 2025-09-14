@@ -5,7 +5,7 @@
 import java.util.Scanner;
 
 public class Checksorted {
-    // method to find the arr is sorted or not.
+    // method to find the arr is sorted or not..
     public static boolean isSorted(int[] arr) {
         for(int i=0;i<arr.length-1;i++){
             if(arr[i]>arr[i+1]){      // we are checking the next element with the present element
