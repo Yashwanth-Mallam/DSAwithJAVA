@@ -6,7 +6,7 @@ public class Countdigits  {
         System.out.println("Enter a number: ");
         int num = s.nextInt();
 
-        // If the number is negative, make it positive (since digits are the same)
+        // If the number is negative, make it positive (since digits are the same).
         if (num < 0) {
             num = -num;
         }

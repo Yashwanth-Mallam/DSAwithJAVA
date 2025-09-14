@@ -10,7 +10,7 @@ public class CheckPolindrone {
             revword += word.charAt(i);  // the main logic of the code are we can call as heart of code.
         }
 
-        // Correct the "string comparison by using .equals" instead of ==
+        // Correct the "string comparison by using .equals" instead of ==.
         if (word.equals(revword)) {
             System.out.println("Given word is a Palindrome!");
         } else {
