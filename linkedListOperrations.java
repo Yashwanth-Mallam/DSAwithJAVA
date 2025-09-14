@@ -20,6 +20,7 @@ public class linkedListOperrations {
         this.data = data1;
         this.next = null; // may be there is noo next node in this case.
     }
+
 }
 // creation of linked list is done now we need to perform operations onit.lets do it in the above class.
  
@@ -137,6 +138,7 @@ class operations {
         }
         return false;
     }
+
 
     // Function to delete the Nth node from the end of the linked list
     public linkedListOperrations DeleteNthNodefromEnd(linkedListOperrations head, int N) {
